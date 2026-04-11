@@ -52,6 +52,12 @@ def run():
         password="stu123456",
         role="student",
     )
+    User.objects.create_user(
+        email="admin@research.ac.uk",
+        name="Platform Admin",
+        password="adm123456",
+        role="admin",
+    )
 
     print("Creating projects...")
     p1 = Project.objects.create(

@@ -65,6 +65,7 @@ const TaskManagerPage = () => {
     setSaving(true);
     try {
       const payload = { ...form };
+      if (payload.status === "completed") payload.progress_percent = 100;
       if (!payload.assigned_to) delete payload.assigned_to;
       if (editingId) {
         await tasksAPI.update(editingId, payload);
@@ -205,7 +206,7 @@ const TaskManagerPage = () => {
               {tasks.map((t) => (
                 <tr key={t.id} className={t.is_critical ? "critical-row" : ""}>
                   <td><strong>{t.name}</strong></td>
-                  <td className="text-muted">{projects.find((p) => p.id === t.project)?.title || "—"}</td>
+                  <td className="text-muted">{projects.find((p) => p.id === t.project)?.title || "-"}</td>
                   <td>{t.duration_days}d</td>
                   <td>{t.assigned_to_detail?.name || <span className="text-muted">Unassigned</span>}</td>
                   <td><span className={`badge badge-${t.status}`}>{t.status.replace("_", " ")}</span></td>
@@ -215,7 +216,7 @@ const TaskManagerPage = () => {
                       <span>{t.progress_percent}%</span>
                     </div>
                   </td>
-                  <td className={t.slack === 0 ? "text-danger bold" : ""}>{t.slack ?? "—"}</td>
+                  <td className={t.slack === 0 ? "text-danger bold" : ""}>{t.slack ?? "-"}</td>
                   <td>{t.is_critical ? <span className="badge badge-critical">YES</span> : <span className="text-muted">No</span>}</td>
                   <td>
                     <div className="action-btns">

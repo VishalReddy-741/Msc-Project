@@ -64,7 +64,7 @@ const SupervisorDashboard = () => {
       <div className="stats-grid">
         <StatCard label="Total Projects" value={allProjects.length} sub={`${activeProjects} active`} color="#1e6b35" />
         <StatCard label="Total Tasks" value={allTasks.length} sub={`${completedTasks} completed`} color="#c25a1a" />
-        <StatCard label="Critical Tasks" value={criticalTasks} sub="Zero slack — highest priority" color="#c0183a" />
+        <StatCard label="Critical Tasks" value={criticalTasks} sub="Zero slack, highest priority" color="#c0183a" />
         <StatCard label="Pending Tasks" value={pendingTasks} sub="Awaiting progress" color="#d4a017" />
       </div>
 

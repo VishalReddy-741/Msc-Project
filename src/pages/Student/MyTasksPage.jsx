@@ -77,15 +77,15 @@ const MyTasksPage = () => {
                   </div>
                   <div className="task-meta-item">
                     <span className="meta-label">Earliest Start</span>
-                    <span>Day {t.earliest_start ?? "—"}</span>
+                    <span>Day {t.earliest_start ?? "-"}</span>
                   </div>
                   <div className="task-meta-item">
                     <span className="meta-label">Earliest Finish</span>
-                    <span>Day {t.earliest_finish ?? "—"}</span>
+                    <span>Day {t.earliest_finish ?? "-"}</span>
                   </div>
                   <div className="task-meta-item">
                     <span className={`meta-label${t.slack === 0 ? " text-danger" : ""}`}>Slack</span>
-                    <span className={t.slack === 0 ? "text-danger bold" : ""}>{t.slack ?? "—"} days</span>
+                    <span className={t.slack === 0 ? "text-danger bold" : ""}>{t.slack ?? "-"} days</span>
                   </div>
                 </div>
                 <div className="progress-section">

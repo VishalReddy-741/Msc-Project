@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const methodSteps = [
   { title: "Forward Pass", desc: "Computes Earliest Start (ES) and Earliest Finish (EF) for every task by traversing the dependency graph from source to sink." },
   { title: "Backward Pass", desc: "Computes Latest Start (LS) and Latest Finish (LF) by traversing in reverse, using the project duration as the boundary." },
-  { title: "Float Calculation", desc: "Total Float = LS − ES (or LF − EF). Tasks with zero float lie on the critical path — any delay directly extends project duration." },
+  { title: "Float Calculation", desc: "Total Float = LS - ES (or LF - EF). Tasks with zero float lie on the critical path. Any delay directly extends project duration." },
   { title: "Critical Path", desc: "The longest path through the network. ResearchFlow highlights critical tasks in red so supervisors can prioritise monitoring and resource allocation." },
 ];
 

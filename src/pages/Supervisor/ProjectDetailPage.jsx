@@ -186,14 +186,14 @@ const ProjectDetailPage = () => {
                 <tr key={t.id} className={t.is_critical ? "critical-row" : ""}>
                   <td><strong>{t.name}</strong></td>
                   <td>{t.duration_days}d</td>
-                  <td>{t.assigned_to_detail?.name || "—"}</td>
+                  <td>{t.assigned_to_detail?.name || "-"}</td>
                   <td><span className={`badge badge-${t.status}`}>{t.status.replace("_", " ")}</span></td>
-                  <td>{t.earliest_start ?? "—"}</td>
-                  <td>{t.earliest_finish ?? "—"}</td>
-                  <td>{t.latest_start ?? "—"}</td>
-                  <td>{t.latest_finish ?? "—"}</td>
-                  <td className={t.slack === 0 ? "text-danger bold" : ""}>{t.slack ?? "—"}</td>
-                  <td>{t.is_critical ? <span className="badge badge-critical">CRITICAL</span> : "—"}</td>
+                  <td>{t.earliest_start ?? "-"}</td>
+                  <td>{t.earliest_finish ?? "-"}</td>
+                  <td>{t.latest_start ?? "-"}</td>
+                  <td>{t.latest_finish ?? "-"}</td>
+                  <td className={t.slack === 0 ? "text-danger bold" : ""}>{t.slack ?? "-"}</td>
+                  <td>{t.is_critical ? <span className="badge badge-critical">CRITICAL</span> : "-"}</td>
                 </tr>
               ))}
             </tbody>

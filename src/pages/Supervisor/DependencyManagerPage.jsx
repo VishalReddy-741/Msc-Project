@@ -167,7 +167,7 @@ const DependencyManagerPage = () => {
                     </div>
                   </td>
                   <td className="text-muted">
-                    {projects.find((p) => p.id === d.predecessor_detail?.project)?.title || "—"}
+                    {projects.find((p) => p.id === d.predecessor_detail?.project)?.title || "-"}
                   </td>
                   <td>
                     <button className="btn btn-sm btn-danger" onClick={() => handleDelete(d.id)}>Remove</button>

@@ -213,12 +213,12 @@ const ScheduleViewPage = () => {
                     <tr key={t.id} className={t.is_critical ? "critical-row" : ""}>
                       <td><strong>{t.name}</strong></td>
                       <td>{t.duration_days}d</td>
-                      <td>{t.earliest_start ?? "—"}</td>
-                      <td>{t.earliest_finish ?? "—"}</td>
-                      <td>{t.latest_start ?? "—"}</td>
-                      <td>{t.latest_finish ?? "—"}</td>
+                      <td>{t.earliest_start ?? "-"}</td>
+                      <td>{t.earliest_finish ?? "-"}</td>
+                      <td>{t.latest_start ?? "-"}</td>
+                      <td>{t.latest_finish ?? "-"}</td>
                       <td className={t.slack === 0 ? "text-danger bold" : t.slack <= 3 ? "text-warning" : ""}>
-                        {t.slack ?? "—"}
+                        {t.slack ?? "-"}
                       </td>
                       <td><span className={`badge badge-${t.status}`}>{t.status?.replace("_", " ")}</span></td>
                       <td>
@@ -227,7 +227,7 @@ const ScheduleViewPage = () => {
                           <span>{t.progress_percent}%</span>
                         </div>
                       </td>
-                      <td>{t.is_critical ? <span className="badge badge-critical">YES</span> : "—"}</td>
+                      <td>{t.is_critical ? <span className="badge badge-critical">YES</span> : "-"}</td>
                     </tr>
                   ))}
               </tbody>

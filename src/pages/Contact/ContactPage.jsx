@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { contactAPI } from "../../services/api";
 
 const topics = [
   "General Enquiry",
@@ -12,12 +13,23 @@ const topics = [
 const ContactPage = () => {
   const [form, setForm] = useState({ name: "", email: "", topic: topics[0], message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    setError("");
+    try {
+      await contactAPI.send(form);
+      setSent(true);
+    } catch (err) {
+      setError(err.response?.data?.detail || "Failed to send message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -109,9 +121,10 @@ const ContactPage = () => {
                     required
                   />
                 </div>
-                <button type="submit" className="btn btn-primary btn-full">
-                  Send Message
+                <button type="submit" className="btn btn-primary btn-full" disabled={sending}>
+                  {sending ? "Sending..." : "Send Message"}
                 </button>
+                {error && <p style={{ color: "#c0183a", marginTop: 12, fontSize: 14 }}>{error}</p>}
               </form>
             )}
           </div>

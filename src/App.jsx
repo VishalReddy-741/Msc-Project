@@ -24,6 +24,10 @@ import TaskDetailPage from "./pages/Student/TaskDetailPage";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminUsersPage from "./pages/Admin/AdminUsersPage";
+import AdminProjectsPage from "./pages/Admin/AdminProjectsPage";
+
 const App = () => (
   <Routes>
     <Route element={<PublicLayout />}>
@@ -76,7 +80,20 @@ const App = () => (
 
       <Route
         path="/profile"
-        element={<ProtectedRoute roles={["supervisor", "student"]}><ProfilePage /></ProtectedRoute>}
+        element={<ProtectedRoute roles={["supervisor", "student", "admin"]}><ProfilePage /></ProtectedRoute>}
+      />
+
+      <Route
+        path="/admin/dashboard"
+        element={<ProtectedRoute roles={["admin"]}><AdminDashboard /></ProtectedRoute>}
+      />
+      <Route
+        path="/admin/users"
+        element={<ProtectedRoute roles={["admin"]}><AdminUsersPage /></ProtectedRoute>}
+      />
+      <Route
+        path="/admin/projects"
+        element={<ProtectedRoute roles={["admin"]}><AdminProjectsPage /></ProtectedRoute>}
       />
 
       <Route path="*" element={<NotFoundPage />} />

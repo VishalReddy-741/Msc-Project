@@ -44,6 +44,13 @@ export const authAPI = {
   getStudents: () => api.get("/auth/students/"),
 };
 
+export const adminAPI = {
+  listUsers: () => api.get("/auth/users/"),
+  createUser: (data) => api.post("/auth/users/", data),
+  updateUser: (id, data) => api.patch(`/auth/users/${id}/`, data),
+  deleteUser: (id) => api.delete(`/auth/users/${id}/`),
+};
+
 export const projectsAPI = {
   list: () => api.get("/projects/"),
   create: (data) => api.post("/projects/", data),
@@ -70,6 +77,10 @@ export const dependenciesAPI = {
 export const scheduleAPI = {
   get: (projectId) => api.get(`/schedule/${projectId}/`),
   compute: (projectId) => api.post(`/schedule/${projectId}/compute/`),
+};
+
+export const contactAPI = {
+  send: (data) => api.post("/auth/contact/", data),
 };
 
 export default api;

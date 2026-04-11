@@ -102,7 +102,7 @@ const StudentDashboard = () => {
 
       {critical.length > 0 && (
         <div className="card">
-          <h3 className="card-title" style={{ color: "#c0183a" }}>Critical Tasks — Priority Action Required</h3>
+          <h3 className="card-title" style={{ color: "#c0183a" }}>Critical Tasks: Priority Action Required</h3>
           <div className="task-cards-grid">
             {critical.map((t) => (
               <Link key={t.id} to={`/student/tasks/${t.id}`} className="task-card-link">
@@ -155,8 +155,8 @@ const StudentDashboard = () => {
                       <span>{t.progress_percent}%</span>
                     </div>
                   </td>
-                  <td className={t.slack === 0 ? "text-danger bold" : ""}>{t.slack ?? "—"}</td>
-                  <td>{t.is_critical ? <span className="badge badge-critical">YES</span> : "—"}</td>
+                  <td className={t.slack === 0 ? "text-danger bold" : ""}>{t.slack ?? "-"}</td>
+                  <td>{t.is_critical ? <span className="badge badge-critical">YES</span> : "-"}</td>
                   <td>
                     <Link to={`/student/tasks/${t.id}`} className="btn btn-sm btn-outline">Update</Link>
                   </td>

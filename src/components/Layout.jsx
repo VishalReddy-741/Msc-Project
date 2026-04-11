@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+const adminLinks = [
+  { to: "/admin/dashboard", label: "Overview", icon: "⊞" },
+  { to: "/admin/users", label: "User Management", icon: "👥" },
+  { to: "/admin/projects", label: "All Projects", icon: "📁" },
+  { to: "/profile", label: "My Account", icon: "👤" },
+];
+
 const supervisorLinks = [
   { to: "/supervisor/dashboard", label: "Overview", icon: "⊞" },
   { to: "/supervisor/projects", label: "Research Projects", icon: "📁" },
@@ -27,7 +34,10 @@ const Layout = () => {
     navigate("/login");
   };
 
-  const links = user?.role === "supervisor" ? supervisorLinks : user?.role === "student" ? studentLinks : [];
+  const links = user?.role === "supervisor" ? supervisorLinks
+    : user?.role === "student" ? studentLinks
+    : user?.role === "admin" ? adminLinks
+    : [];
 
   return (
     <div className="app-shell">

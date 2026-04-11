@@ -19,6 +19,7 @@ const LoginPage = () => {
       const user = await login(form.email, form.password);
       if (user.role === "supervisor") navigate("/supervisor/dashboard");
       else if (user.role === "student") navigate("/student/dashboard");
+      else if (user.role === "admin") navigate("/admin/dashboard");
       else navigate("/login");
     } catch (err) {
       setError(err.response?.data?.detail || "Invalid credentials. Please try again.");
@@ -71,6 +72,7 @@ const LoginPage = () => {
           <div className="demo-creds">
             <span><strong>Supervisor:</strong> supervisor@research.ac.uk / sup123456</span>
             <span><strong>Student:</strong> student1@research.ac.uk / stu123456</span>
+            <span><strong>Admin:</strong> admin@research.ac.uk / adm123456</span>
           </div>
         </div>
       </div>

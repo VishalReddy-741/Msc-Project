@@ -74,7 +74,10 @@ class TaskProgressUpdateView(APIView):
         if user.role == "student" and user != task.assigned_to:
             raise PermissionDenied("You can only update your own task progress.")
 
-        serializer = TaskProgressSerializer(task, data=request.data, partial=True)
+        data = request.data.copy()
+        if data.get("status") == "completed":
+            data["progress_percent"] = 100
+        serializer = TaskProgressSerializer(task, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         updated = serializer.save()
         trigger_schedule_computation(updated.project_id)

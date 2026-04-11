@@ -538,7 +538,7 @@ a:hover { text-decoration: underline; }
   padding: 28px;
   transition: transform 0.15s, box-shadow 0.15s;
 }
-.feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.feature-card:hover { box-shadow: var(--shadow-lg); }
 .feature-icon { font-size: 28px; margin-bottom: 14px; }
 .feature-title { font-size: 16px; font-weight: 700; color: var(--vamp); margin-bottom: 8px; }
 .feature-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }

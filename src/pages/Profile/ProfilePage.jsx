@@ -60,7 +60,7 @@ const ProfilePage = () => {
     }
   };
 
-  const joinedDate = user?.created_at ? new Date(user.created_at).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" }) : "—";
+  const joinedDate = user?.created_at ? new Date(user.created_at).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" }) : "N/A";
 
   return (
     <div className="page">

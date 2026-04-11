@@ -97,30 +97,30 @@ const TaskDetailPage = () => {
           <div className="cpm-data-grid">
             <div className="cpm-data-item">
               <span className="cpm-label">Earliest Start</span>
-              <span className="cpm-value">Day {task.earliest_start ?? "—"}</span>
+              <span className="cpm-value">Day {task.earliest_start ?? "-"}</span>
             </div>
             <div className="cpm-data-item">
               <span className="cpm-label">Earliest Finish</span>
-              <span className="cpm-value">Day {task.earliest_finish ?? "—"}</span>
+              <span className="cpm-value">Day {task.earliest_finish ?? "-"}</span>
             </div>
             <div className="cpm-data-item">
               <span className="cpm-label">Latest Start</span>
-              <span className="cpm-value">Day {task.latest_start ?? "—"}</span>
+              <span className="cpm-value">Day {task.latest_start ?? "-"}</span>
             </div>
             <div className="cpm-data-item">
               <span className="cpm-label">Latest Finish</span>
-              <span className="cpm-value">Day {task.latest_finish ?? "—"}</span>
+              <span className="cpm-value">Day {task.latest_finish ?? "-"}</span>
             </div>
             <div className="cpm-data-item">
               <span className="cpm-label">Slack (Float)</span>
               <span className={`cpm-value ${task.slack === 0 ? "text-danger bold" : ""}`}>
-                {task.slack ?? "—"} days
+                {task.slack ?? "-"} days
               </span>
             </div>
             <div className="cpm-data-item">
               <span className="cpm-label">On Critical Path</span>
               <span className={`cpm-value ${task.is_critical ? "text-danger bold" : ""}`}>
-                {task.is_critical ? "YES — Cannot be delayed" : "No"}
+                {task.is_critical ? "YES: Cannot be delayed" : "No"}
               </span>
             </div>
           </div>
@@ -155,7 +155,10 @@ const TaskDetailPage = () => {
             </div>
             <div className="form-field">
               <label>Task Status</label>
-              <select value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value })}>
+              <select value={form.status} onChange={(e) => {
+                const s = e.target.value;
+                setForm({ ...form, status: s, progress_percent: s === "completed" ? 100 : form.progress_percent });
+              }}>
                 <option value="pending">Pending</option>
                 <option value="in_progress">In Progress</option>
                 <option value="completed">Completed</option>
@@ -204,7 +207,7 @@ const TaskDetailPage = () => {
         <h4>Understanding Your Schedule Data</h4>
         <div className="tooltip-grid">
           <div className="tooltip-item">
-            <strong>Slack:</strong> The number of days this task can be delayed without delaying the overall project. If slack is 0, you are on the critical path — your task cannot slip.
+            <strong>Slack:</strong> The number of days this task can be delayed without delaying the overall project. If slack is 0, you are on the critical path. Your task cannot slip.
           </div>
           <div className="tooltip-item">
             <strong>Critical Path:</strong> The sequence of tasks that determines the minimum completion time for the project. Tasks on the critical path have zero slack.

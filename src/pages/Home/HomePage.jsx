@@ -88,7 +88,7 @@ const HomePage = () => (
         <div className="cpm-card">
           <div className="cpm-card-header">
             <span className="cpm-dot red" /><span className="cpm-dot amber" /><span className="cpm-dot green" />
-            <span className="cpm-card-title">Critical Path — Project 1</span>
+            <span className="cpm-card-title">Critical Path: Project 1</span>
           </div>
           <div className="cpm-rows">
             {[
@@ -118,7 +118,7 @@ const HomePage = () => (
         <div className="section-label">Core Capabilities</div>
         <h2 className="section-heading">Everything a Research Team Needs</h2>
         <p className="section-sub">
-          From dependency modelling to live schedule visualisation — ResearchFlow handles the
+          From dependency modelling to live schedule visualisation, ResearchFlow handles the
           scheduling complexity so supervisors and students can focus on the research.
         </p>
         <div className="features-grid">
@@ -158,7 +158,7 @@ const HomePage = () => (
         </p>
         <div className="cta-actions">
           <Link to="/register" className="btn btn-primary btn-lg">Create an Account</Link>
-          <Link to="/login" className="btn btn-outline btn-lg">Sign In</Link>
+          <Link to="/login" className="btn btn-lg" style={{ background: "transparent", color: "#fff", border: "1.5px solid rgba(255,255,255,0.6)" }}>Sign In</Link>
         </div>
       </div>
     </section>

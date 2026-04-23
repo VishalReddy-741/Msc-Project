@@ -1,0 +1,7 @@
+code,pseudonym,programme,tasks_completed,time_minutes,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,SUS,band,remark
+001,P1,MSc Software Engineering,5 of 5,12,4,2,4,2,4,2,4,2,4,2,75.0,Good,The Gantt timeline is clear and the critical path highlight makes the at-risk tasks obvious. Project creation and dependency entry felt natural.
+002,P2,MSc Data Analytics,5 of 5,16,4,1,5,2,4,2,5,1,4,2,80.0,Good,The Gantt chart was the most useful feature. Red highlighting on critical tasks made the risks obvious at a glance. Forms were simple to fill in.
+003,P3,MSc Cyber Security,5 of 5,19,4,2,4,3,4,2,4,2,3,2,72.5,Acceptable,The Precedence Map dropdowns were confusing because there were no labels showing which one was the predecessor and which was the successor.
+
+# Mean SUS,75.83
+"# Adjective rating (Bangor, Kortum & Miller 2008)",Excellent (74-85 band)
